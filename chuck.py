@@ -9,5 +9,5 @@ if result.status_code == 200:
     print("Success!!! We got a new jokes!")
 else:
     print("Error!!!")
-result.encoding = 'utf-8'
+result.encoding = "utf-8"
 print(result.text)

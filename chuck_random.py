@@ -37,5 +37,42 @@ class Test_new_joke():
         else:
             print("Chuck is missing!")
 
+
+    def test_create_new_random_cathegories_joke(self):
+        """"Create random sport joke"""
+
+        category = "sport"
+
+        url = "https://api.chucknorris.io/jokes/random?category=" + category
+        print(url)
+        result = requests.get(url)
+        print("Status code: " + str(result.status_code))
+        assert 200 == result.status_code
+        if result.status_code == 200:
+            print("Success!!! We got a new jokes!")
+        else:
+            print("Error!!!")
+        result.encoding = "utf-8"
+        print(result.text)
+
+        check = result.json()
+        check_info = check.get("categories")
+        assert check_info == ['sport']
+        print("Categories is True")
+
+        check_info_value = check.get("value")
+        print(check_info_value)
+
+        name = "Chuck"
+        if name in check_info_value:
+            print("Chuck is present!")
+        else:
+            print("Chuck is missing!")
+
 random_joke = Test_new_joke()
 random_joke.test_create_new_random_joke()
+
+print("-------------------------------------------------------------")
+
+sport_joke = Test_new_joke()
+sport_joke.test_create_new_random_cathegories_joke()

@@ -1,7 +1,5 @@
 import requests
 
-
-
 class TestCreateRandomeJokeCategory():
     """"Класс включающий сценарии по отправке запросов, с целью получения шуток с Чаком Норрисом по заданной категории"""
     """"https://api.chucknorris.io/jokes/random?category={category}"""

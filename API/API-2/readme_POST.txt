@@ -2,7 +2,7 @@ Learning the basics of automated API testing
 
 
 
-Документация Google Map API. ВИДЕО В СЛЕДУЮЩЕЙ ВКЛАДКЕ
+Документация Google Map API
 
 Метод POST
 

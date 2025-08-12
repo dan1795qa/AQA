@@ -30,7 +30,7 @@ class FiveNewLocations():
         count_requests = 1
 
         while count_requests < 6:
-            print(f"-----------Запрос номер {count_requests}----------------")
+            print(f"\n-----------Запрос номер {count_requests}----------------")
             json_for_create_new_location = {
                 "location": {
                     "lat": -38.383494,
@@ -83,7 +83,7 @@ class FiveNewLocations():
                 print(list_place_id)
 
             for place_id in list_place_id:
-                print(f"-----------Запрос для place_id: {place_id}----------------")
+                print(f"\n-----------Запрос для place_id: {place_id}----------------")
                 get_resource = "/maps/api/place/get/json"
                 get_url = self.base_url + get_resource + self.key + '&place_id=' + place_id
                 print(get_url)
@@ -106,4 +106,4 @@ test = FiveNewLocations()
 test.test_create_new_location()
 test.test_check_locations_from_file()
 #
-test.clear_file()
+# test.clear_file()

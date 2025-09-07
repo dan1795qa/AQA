@@ -1,34 +1,34 @@
-https://swapi.dev/api/people/1/
-https://swapi.dev/api/people/2/
-https://swapi.dev/api/people/3/
-https://swapi.dev/api/people/4/
-https://swapi.dev/api/people/5/
-https://swapi.dev/api/people/6/
-https://swapi.dev/api/people/7/
-https://swapi.dev/api/people/10/
-https://swapi.dev/api/people/11/
-https://swapi.dev/api/people/12/
-https://swapi.dev/api/people/13/
-https://swapi.dev/api/people/20/
-https://swapi.dev/api/people/21/
-https://swapi.dev/api/people/33/
-https://swapi.dev/api/people/35/
-https://swapi.dev/api/people/46/
-https://swapi.dev/api/people/51/
-https://swapi.dev/api/people/52/
-https://swapi.dev/api/people/53/
-https://swapi.dev/api/people/54/
-https://swapi.dev/api/people/55/
-https://swapi.dev/api/people/56/
-https://swapi.dev/api/people/58/
-https://swapi.dev/api/people/63/
-https://swapi.dev/api/people/64/
-https://swapi.dev/api/people/67/
-https://swapi.dev/api/people/68/
-https://swapi.dev/api/people/75/
-https://swapi.dev/api/people/78/
-https://swapi.dev/api/people/79/
-https://swapi.dev/api/people/80/
-https://swapi.dev/api/people/81/
-https://swapi.dev/api/people/82/
-https://swapi.dev/api/people/83/
+Luke Skywalker
+C-3PO
+R2-D2
+Darth Vader
+Leia Organa
+Owen Lars
+Beru Whitesun lars
+Obi-Wan Kenobi
+Anakin Skywalker
+Wilhuff Tarkin
+Chewbacca
+Yoda
+Palpatine
+Nute Gunray
+Padmé Amidala
+Ayla Secura
+Mace Windu
+Ki-Adi-Mundi
+Kit Fisto
+Eeth Koth
+Adi Gallia
+Saesee Tiin
+Plo Koon
+Poggle the Lesser
+Luminara Unduli
+Dooku
+Bail Prestor Organa
+R4-P17
+Shaak Ti
+Grievous
+Tarfful
+Raymus Antilles
+Sly Moore
+Tion Medon

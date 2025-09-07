@@ -7,7 +7,7 @@ class Swapi_heroes():
 
     def test_get_characters(self):
 
-        global list_films, list_characters
+        global list_films, list_characters, list_name_characters, character
 
         """"Получение списка всех фильмов где снимался Дарт Вейдер"""
         base_url = "https://swapi.dev/api/"
@@ -23,7 +23,6 @@ class Swapi_heroes():
                 list_films = v
                 print(list_films)
 
-
         """"Получение списка персонажей, которые снимались с Дарт Вейдером в фильмах полученных ранее"""
         for i in list_films:
             list_characters = []
@@ -33,10 +32,15 @@ class Swapi_heroes():
                 if k == 'characters':
                     list_characters = list_characters + v
 
+        list_name_characters = []
+        for i in list_characters:
+            character = requests.get(i, verify=False).json().get('name')
+            list_name_characters.append(character)
+
         """"Запись полученного списка персонажей в отдельный файл"""
-        print(list_characters)
-        with open('./answer.txt', 'w') as answer:
-            for i in list_characters:
+        print(list_name_characters)
+        with open('./answer.txt', 'w', encoding='utf-8') as answer:
+            for i in list_name_characters:
                 answer.write(f"{i}\n")
 
 

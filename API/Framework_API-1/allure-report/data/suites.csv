@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sat Sep 06 15:39:00 MSK 2025","Sat Sep 06 15:39:17 MSK 2025","16419","tests","test_google_maps_api","Test_create_place","","","test_create_new_place","Test create, update, delete new place"

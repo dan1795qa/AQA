@@ -1,0 +1,84 @@
+После отправки запроса, мы получили несколько ответов от сервера
+
+response_json_1 = '''{
+    "status": "OK",
+    "place_id": null,
+    "scope": "APP",
+    "reference": null,
+    "id": "1f71a23b1374071eecbb70eed1054cf9"
+}'''
+
+response_json_2 = '''{
+    "location": {
+        "latitude": -38.383494,
+        "longitude": 33.427362
+    },
+    "accuracy": "50",
+    "name": "Frontline house",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://google.com",
+    "language": "French-IN"
+}'''
+
+response_json_3 = '''['animal', 'career', 'celebrity', 'dev', 'explicit', 'fashion', 'food', 'history', 'money', 'movie', 'music', 'political', 'religion', 'science', 'sport', 'travel']'''
+
+
+response_json_4 = '''{
+    "status": "OK",
+    "place_id": null,
+    "scope": "APP",
+    "reference": null,
+    "id": "df71a23b1374013eecbb70eed1054cf9"
+}'''
+
+Создайте файл file.txt. В тех ответах, где есть поле id, получите их значения и запишите в файл. Выведите на печать содержимое файла, построчно.
+
+====================Решение=========================
+
+import json
+
+response_json_1 = '''{
+    "status": "OK",
+    "place_id": null,
+    "scope": "APP",
+    "reference": null,
+    "id": "1f71a23b1374071eecbb70eed1054cf9"
+}'''
+
+response_json_2 = '''{
+    "location": {
+        "latitude": -38.383494,
+        "longitude": 33.427362
+    },
+    "accuracy": "50",
+    "name": "Frontline house",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://google.com",
+    "language": "French-IN"
+}'''
+
+response_json_3 = '''['animal', 'career', 'celebrity', 'dev', 'explicit', 'fashion', 'food', 'history', 'money', 'movie', 'music', 'political', 'religion', 'science', 'sport', 'travel']'''
+
+
+response_json_4 = '''{
+    "status": "OK",
+    "place_id": null,
+    "scope": "APP",
+    "reference": null,
+    "id": "df71a23b1374013eecbb70eed1054cf9"
+}'''
+
+list_response = [response_json_1, response_json_2, response_json_3, response_json_4]
+
+for i in list_response:
+    j = json.loads(i.replace("'", '"'))
+    if isinstance(j, dict) and "id" in j:
+        with open('file.txt', 'a') as f:
+            for k, v in j.items():
+                if k == 'id':
+                    f.write(f'{v}\n')
+
+with open('file.txt') as f:
+    print(f.read())

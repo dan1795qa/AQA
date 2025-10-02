@@ -1,0 +1,67 @@
+После отправки запроса, мы получили несколько ответов от сервера
+
+response_json_1 = '''{
+    "status": "OK",
+    "place_id": null,
+    "scope": "APP",
+    "reference": null,
+    "id": "1f71a23b1374071eecbb70eed1054cf1"
+}'''
+
+response_json_2 = '''{
+    "status": "OK",
+    "place_id": null,
+    "scope": "APP",
+    "reference": null,
+    "id": "1f71a23b1374013eecbb70eed1054cf2"
+}'''
+
+response_json_3 = '''{
+    "status": "OK",
+    "place_id": null,
+    "scope": "APP",
+    "reference": null,
+    "id": "df71a23b1374013eecbb70eed1054cf3"
+}'''
+
+Создайте файл file.txt и запишите в него построчно значения поля id, далее выведите на печать содержимое файла, построчно.
+
+
+====================Решение=========================
+
+import json
+
+response_json_1 = '''{
+    "status": "OK",
+    "place_id": null,
+    "scope": "APP",
+    "reference": null,
+    "id": "1f71a23b1374071eecbb70eed1054cf1"
+}'''
+
+response_json_2 = '''{
+    "status": "OK",
+    "place_id": null,
+    "scope": "APP",
+    "reference": null,
+    "id": "1f71a23b1374013eecbb70eed1054cf2"
+}'''
+
+response_json_3 = '''{
+    "status": "OK",
+    "place_id": null,
+    "scope": "APP",
+    "reference": null,
+    "id": "df71a23b1374013eecbb70eed1054cf3"
+}'''
+
+list_response = [response_json_1, response_json_2, response_json_3]
+
+for i in list_response:
+    j = json.loads(i.replace("'", '"'))
+    for k, v in j.items():
+        with open('file.txt', 'a') as f:
+            if k == 'id':
+                f.write(f'{v}\n')
+with open('file.txt') as f:               
+    print(f.read())

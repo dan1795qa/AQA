@@ -1,0 +1,25 @@
+После отправки запроса, мы получили ответ от сервера
+
+response_json = '''{
+    "status": "OK",
+    "place_id": null,
+    "scope": "APP",
+    "reference": null,
+    "id": "1f71a23b1374071eecbb70eed1054cf9"
+}'''
+
+Получите список ключей, которые имеют значение null и выведите его на печать, построчно.
+
+====================Решение=========================
+
+import json
+response_json = '''{
+    "status": "OK",
+    "place_id": null,
+    "scope": "APP",
+    "reference": null,
+    "id": "1f71a23b1374071eecbb70eed1054cf9"
+}'''
+
+
+[print(i) for i, j in json.loads(response_json.replace("'", '"')).items() if j == None]

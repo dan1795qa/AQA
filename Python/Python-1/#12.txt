@@ -1,0 +1,36 @@
+После отправки запроса, мы получили ответ от сервера
+
+response_json = '''{
+    "location": {
+        "latitude": -38.383494,
+        "longitude": 33.427362
+    },
+    "accuracy": 50,
+    "name": "Frontline house",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://google.com",
+    "language": "French-IN"
+}'''
+
+Получите список ключей, которые имеют в себе часть строки "http" и выведите его на печать, построчно.
+
+
+====================Решение=========================
+
+response_json = {
+    "location": {
+        "latitude": -38.383494,
+        "longitude": 33.427362
+    },
+    "accuracy": 50,
+    "name": "Frontline house",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://google.com",
+    "language": "French-IN"
+}
+
+for k, v in response_json.items():
+    if isinstance(v, str) and  'http' in v:
+        print(k)

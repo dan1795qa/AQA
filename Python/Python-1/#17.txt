@@ -1,0 +1,72 @@
+Тело запроса метода Post 
+
+{
+
+    "accuracy": "50",
+
+    "name": "Frontline house",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cohen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://google.com",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа метода Get
+
+{
+    "accuracy": "50",
+
+    "name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cohen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Даны JSON-объекты —  тело запроса метода POST и тело ответа метода GET.
+
+Необходимо сравнить их и определить, какие поля с одинаковыми именами содержат разные значения.
+
+Выведите данные поля на печать, построчно.
+
+====================Решение=========================
+
+request = {
+    "accuracy": "50",
+    "name": "Frontline house",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://google.com",
+    "language": "French-IN"
+}
+
+response = {
+    "accuracy": "50",
+    "name": "Frontline house, 1",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+for k, v in request.items():
+    if k in response:
+        if v != response[k]:
+            print(k)
+

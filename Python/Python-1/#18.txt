@@ -1,0 +1,105 @@
+Тело ответа №1
+
+{
+
+    "accuracy": 50,
+
+    "name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cohen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №2
+
+{
+
+    "accuracy": "50",
+
+    "name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cohen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №3
+
+{
+
+    "accuracy": 50,
+
+    "name": True,
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cohen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+ 
+
+Даны JSON-объекты — тела ответов сервера. Необходимо сравнить данные этих ответов и определить, есть ли среди них ключ/ключи, в которых типы данных отличаются.
+
+Например, в одном ответе ключ "accuracy" может быть числом, а в другом/других — строкой.
+
+Выведите на экран список названий таких ключей с разными типами данных, построчно.
+
+====================Решение=========================
+
+one = {
+    "accuracy": 50,
+    "name": "Frontline house, 1",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+two = {
+    "accuracy": "50",
+    "name": "Frontline house, 1",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+three = {
+    "accuracy": 50,
+    "name": True,
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+
+for k, v in one.items():
+    if k in two and k in three:
+        if type(v) != type(two[k]) or type(v) != type(three[k]):
+            print(k)

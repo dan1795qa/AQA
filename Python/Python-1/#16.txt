@@ -1,0 +1,15 @@
+После отправки запроса, мы получили ответ от сервера
+
+response_json = "{'timestamp': '2024-05-25T19:24:21.351Z', 'status': 404, 'error': 'Not Found','path': '/jokes/random'}"
+
+Дан JSON-объект — тело ответов сервера.. Необходимо вывести на экран, построчно, имена тех ключей, значения которых состоят исключительно из цифр.
+
+====================Решение=========================
+
+import json
+response_json = "{'timestamp': '2024-05-25T19:24:21.351Z', 'status': 404, 'error': 'Not Found','path': '/jokes/random'}"
+response = json.loads(response_json.replace("'",'"'))
+
+for k, v in response.items():
+    if type(v) == int or type(v) == float:
+        print(f"{k}\n")

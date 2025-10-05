@@ -1,0 +1,92 @@
+Тело ответа №1
+
+{
+
+    "status": "OK",
+
+    "place_id": "dea036e58d6773b3f8bfb256249a1593",
+
+    "scope": "APP",
+
+    "reference": "1f71a23b1374071eecbb70eed1054cf91f71a23b1374071eecbb70eed1054cf9",
+
+    "id": "1f71a23b1374071eecbb70eed1054cf9"
+
+}
+
+Тело ответа №2
+
+{
+
+    "status": "OK",
+
+    "place_id": "d03e58d993b3f8bfb256249a1593",
+
+    "scope": "APP",
+
+    "reference": "1f71a23b1374071eecbb70eed1054cf91f71a23b1374071eecbb70eed1054cf9",
+
+    "id": "1f71a23b1374071eecbb70eed1054cf9"
+
+}
+
+Тело ответа №3
+
+{
+
+    "status": "OK",
+
+    "place_id": "dea03e5d6773b3f8bfb256249a159",
+
+    "scope": "APP",
+
+    "reference": "1f71a23b1374071eecbb70eed1054cf91f71a23b1374071eecbb70eed1054cf9",
+
+    "id": "1f71a23b1374071eecbb70eed1054cf9"
+
+}
+
+Даны JSON-объекты — тела ответов сервера. Требуется найти номер(а) тех ответов, в которых длина строки в ключе "place_id" меньше 30 символов.
+
+Необходимо вывести номера таких ответов построчно.
+
+Значение должно быть в виде числа - 1,2  или 3.
+
+====================Решение=========================
+
+one = {
+    "status": "OK",
+    "place_id": "dea036e58d6773b3f8bfb256249a1593",
+    "scope": "APP",
+    "reference": "1f71a23b1374071eecbb70eed1054cf91f71a23b1374071eecbb70eed1054cf9",
+    "id": "1f71a23b1374071eecbb70eed1054cf9"
+}
+
+two = {
+    "status": "OK",
+    "place_id": "d03e58d993b3f8bfb256249a1593",
+    "scope": "APP",
+    "reference": "1f71a23b1374071eecbb70eed1054cf91f71a23b1374071eecbb70eed1054cf9",
+    "id": "1f71a23b1374071eecbb70eed1054cf9"
+}
+
+three = {
+    "status": "OK",
+    "place_id": "dea03e5d6773b3f8bfb256249a159",
+    "scope": "APP",
+    "reference": "1f71a23b1374071eecbb70eed1054cf91f71a23b1374071eecbb70eed1054cf9",
+    "id": "1f71a23b1374071eecbb70eed1054cf9"
+}
+
+list_answ = [one, two, three]
+l = []
+
+for i in list_answ:
+    for k, v in i.items():
+        if k == 'place_id':
+            l.append(v)
+
+for j in l:
+    if len(j) < 30:
+        print(l.index(j) + 1)
+

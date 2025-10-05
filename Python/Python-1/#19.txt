@@ -1,0 +1,115 @@
+Тело ответа №1
+
+{
+
+    "accuracy": 50,
+
+    "name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cohen 09",
+
+    "data": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №2
+
+{
+
+    "accuracy": "50",
+
+    "last_name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cohen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №3
+
+{
+
+    "accuracy": 50,
+
+    "name": True,
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cohen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+ 
+
+Даны JSON-объекты — тела ответов сервера. По условию, все три ответа должны содержать одинаковый набор ключей.
+
+Необходимо проверить, есть ли ключи, которые встречаются не во всех трёх ответах, то есть присутствуют в одних и отсутствуют в других. Например, ключ "name" есть в одном ответе, но отсутствует в другом.
+
+Выведите на экран список таких ключей, которые отсутствуют хотя бы в одном из ответов, построчно.
+
+====================Решение=========================
+
+one = {
+    "accuracy": 50,
+    "name": "Frontline house, 1",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "data": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+two = {
+    "accuracy": "50",
+    "last_name": "Frontline house, 1",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+three = {
+    "accuracy": 50,
+    "name": True,
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+list_answer = []
+s_list = []
+
+for k, v in one.items():
+    if k not in two or k not in three:
+        list_answer.append(k)
+
+for k, v in two.items():
+    if k not in one or k not in three:
+        list_answer.append(k)
+
+
+for i in sorted(list_answer):
+    print(i)
+

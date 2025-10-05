@@ -1,0 +1,171 @@
+Тело ответа №1
+
+{
+
+    "accuracy": 50,
+
+    "name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layut, cohen O9",
+
+    "data": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №2
+
+{
+
+    "accuracy": "50",
+
+    "last_name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cohen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №3
+
+{
+
+    "accuracy": 50,
+
+    "name": True,
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cohen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №4
+
+{
+
+    "accuracy": 50,
+
+    "name": True,
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, sidе layout, cohen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №5
+
+{
+
+    "accuracy": 50,
+
+    "name": True,
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cоhen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+С помощью запроса Put был изменен адрес в 5-х локациях. Даны JSON-объекты — тела ответов сервера. По условию, все пять ответов должны содержать одинаковое значение поля "address".
+
+Необходимо проверить, есть ли ответы, в которых значение ключа "address" одинаковые и вывести их номера на экран. Построчно.
+
+Значение должно быть в виде числа - 1, 2, 3, 4, 5.
+
+Подсказка: Сравнивайте значения "address" строго, учитывая регистр, пробелы и все символы
+
+====================Решение=========================
+
+one = {
+    "accuracy": 50,
+    "name": "Frontline house, 1",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layut, cohen O9",
+    "data": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+two = {
+    "accuracy": "50",
+    "last_name": "Frontline house, 1",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+three = {
+    "accuracy": 50,
+    "name": True,
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+four = {
+    "accuracy": 50,
+    "name": True,
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, sidе layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+five = {
+    "accuracy": 50,
+    "name": True,
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cоhen 09",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+l = [one["address"], two["address"], three["address"], four["address"], five["address"]]
+d = {k:v for k, v in enumerate(l, start=1)}
+
+matches = []
+for i in range(1, 6):
+    for j in range(i + 1, 6):
+        if d[i] == d[j]:
+            matches.append(i)
+            matches.append(j)
+
+for i in matches:
+    print(i)

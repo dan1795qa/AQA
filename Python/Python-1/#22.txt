@@ -1,0 +1,106 @@
+Тело ответа №1
+
+{
+
+    "accuracy": 50,
+
+    "name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layut, cohen O9",
+
+    "data": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №2
+
+{
+
+    "accuracy": "50",
+
+    "last_name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cohen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №3
+
+{
+
+    "accuracy": 50,
+
+    "name": True,
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "29, side layout, cohen 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+ 
+
+С помощью запроса Put был изменен адрес в 3-х локациях. Даны JSON-объекты — тела ответов сервера. По условию, все три ответа должны содержать одинаковое значение ключа "address".
+
+Необходимо проверить, есть ли ответ, в котором значение ключа "address" отличается от других и вывести его номер на экран.
+
+Значение должно быть в виде числа - 1,2  или 3.
+
+====================Решение=========================
+
+one = {
+    "accuracy": 50,
+    "name": "Frontline house, 1",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layut, cohen O9",
+    "data": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+two = {
+    "accuracy": "50",
+    "last_name": "Frontline house, 1",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+three = {
+    "accuracy": 50,
+    "name": True,
+    "phone_number": "(+91) 983 893 3937",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+if one['address'] != two['address'] and one['address'] != three['address']:
+      print(1)
+elif two['address'] != one['address'] and one['address'] != three['address']:
+    print(2)
+elif three['address'] != one['address'] and one['address'] != two['address']:
+    print(3)

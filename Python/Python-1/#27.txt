@@ -1,0 +1,57 @@
+URL для отправки запроса включает в себя 3 обязательных части
+
+Base URL: https://rahulshettyacademy.com
+
+Resource: /maps/api/place/add/json , /maps/api/place/get/json, /maps/api/place/put/json, /maps/api/place/delete/json
+
+Параметр для всех запросов:
+
+1)key=qaclick123 - для запросов с Resource  /maps/api/place/add/json, /maps/api/place/put/json, /maps/api/place/delete/json
+
+2)key=qaclick123&place_id=dea036e58d6773b3f8bfb256249a1593 - для запроса с Resource /maps/api/place/get/json
+
+Итоговый вид URL выглядит следующим образом: Base URL + Resource + Параметр для всех запросов
+
+Были подготовлены тестовые данные в виде списка url.
+
+urls = [
+    "https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123",
+    "http://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123",
+    "https://rahulshettyacademy.com/maps/api/place/add/json?key=wrongkey",
+    "https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123",
+    "https://rahulshettyacademy.com/maps/api/place/put/json?key=",
+    "https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123&extra=param",
+    "https://rahulshettyacademy.com/maps/api/place/add/json",
+    "https://rahulshettyacademy.commaps/api/place/add/json?key=qaclick123",
+    "https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=dea036e58d6773b3f8bfb256249a1593",
+    "https://rahulshettyacademy.com/maps/api/place/modify/json?key=qaclick123"
+]
+
+Необходимо его проверить и вывести на печать url которые составлены корректно. Построчно.
+
+====================Решение=========================
+
+base_url = "https://rahulshettyacademy.com"
+key1 = '?key=qaclick123'
+key2 = '?key=qaclick123&place_id=dea036e58d6773b3f8bfb256249a1593'
+
+urls = [
+    "https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123",
+    "http://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123",
+    "https://rahulshettyacademy.com/maps/api/place/add/json?key=wrongkey",
+    "https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123",
+    "https://rahulshettyacademy.com/maps/api/place/put/json?key=",
+    "https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123&extra=param",
+    "https://rahulshettyacademy.com/maps/api/place/add/json",
+    "https://rahulshettyacademy.commaps/api/place/add/json?key=qaclick123",
+    "https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=dea036e58d6773b3f8bfb256249a1593",
+    "https://rahulshettyacademy.com/maps/api/place/modify/json?key=qaclick123"
+]
+
+
+
+for i in urls:
+     if base_url in i and ('/maps/api/place/add/json' or '/maps/api/place/put/json' or '/maps/api/place/delete/json') in i and key1 in i:
+         print(f'{i}')
+     elif (base_url and '/maps/api/place/get/json' and key2) in i:
+         print(f'{i}')

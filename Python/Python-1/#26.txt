@@ -1,0 +1,37 @@
+RL для отправки запроса включает в себя 3 обязательных части
+
+Base URL: https://rahulshettyacademy.com
+
+Resource: /maps/api/place/add/json
+
+Параметр для всех запросов: key=qaclick123
+
+Итоговый вид URL выглядит следующим образом:  https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+
+Были подготовлены тестовые данные в виде списка url.
+
+urls = [
+    "https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123",
+    "https://rahulshettyacademy.com/maps/api/place/add/json?key=wrongkey",
+    "https://rahulshettyacademy.com/maps/api/place/add/json?",
+    "http://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123",
+    "https://rahulshettyacademy.commaps/api/place/add/json?key=qaclick123"
+]
+
+Необходимо его проверить и вывести на печать url которые составлены корректно. Построчно.
+
+====================Решение=========================
+
+urls = [
+    "https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123",
+    "https://rahulshettyacademy.com/maps/api/place/add/json?key=wrongkey",
+    "https://rahulshettyacademy.com/maps/api/place/add/json?",
+    "http://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123",
+    "https://rahulshettyacademy.commaps/api/place/add/json?key=qaclick123"
+]
+
+counter = 1
+for i in urls:
+    if i == a:
+        print(i)
+        counter =  counter + 1

@@ -1,0 +1,157 @@
+После отправки запроса сервер вернул JSON-объект, содержащий несколько вложенных объектов. В каждом из них присутствует ключ "value", внутри которого имя Chuck Norris встречается как минимум один раз.
+
+response_json = '''{
+    "total": 7,
+    "result": [
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:19.324003",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "rQWvBHHjRAeUKXZ4g3ufzQ",
+            "updated_at": "2020-01-05 13:42:19.324003",
+            "url": "https://api.chucknorris.io/jokes/rQWvBHHjRAeUKXZ4g3ufzQ",
+            "value": "Pauly D from Jersey Shore was at the Dance party where Chuck Norris invented the Electric Slide. His hair is now permanently stuck in a blowout position."
+        },
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:20.568859",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "e8kCACtMRL2MoqdFKdSE2A",
+            "updated_at": "2020-01-05 13:42:20.568859",
+            "url": "https://api.chucknorris.io/jokes/e8kCACtMRL2MoqdFKdSE2A",
+            "value": "Only one woman has ever survived a slow dance with Chuck Norris, and she was a jeep."
+        },
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:23.484083",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "8jXeBbRMSbKwN-Rt097h0A",
+            "updated_at": "2020-01-05 13:42:23.484083",
+            "url": "https://api.chucknorris.io/jokes/8jXeBbRMSbKwN-Rt097h0A",
+            "value": "Chuck Norris did offer to dance with the Devil on the pale moonlight but the Devil said not a chance, not with Chuck Norris!"
+        },
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:24.142371",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "5GNd_hFfSfKasJGSyujRSw",
+            "updated_at": "2020-01-05 13:42:24.142371",
+            "url": "https://api.chucknorris.io/jokes/5GNd_hFfSfKasJGSyujRSw",
+            "value": "Some people think they're cool if they walk across hot coals. Chuck Norris regularly breakdances on them."
+        },
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:24.40636",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "GmFOrvL2STqRz0oVO-0I9w",
+            "updated_at": "2020-01-05 13:42:24.40636",
+            "url": "https://api.chucknorris.io/jokes/GmFOrvL2STqRz0oVO-0I9w",
+            "value": "If you use a comeback at Chuck Norris while talking, he will comeback your face. Chuck Norris: Your gay. You: Im straighter than the pole you danced on last night. Chuck Norris: Go get grounded by your mom with that joke Crowd: OOOOOOOOOOOHHHHHHHHHHHH!!!!!!!!!!!"
+        },
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:25.628594",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "g_zwbupASxCDjBlEbhcKvg",
+            "updated_at": "2020-01-05 13:42:25.628594",
+            "url": "https://api.chucknorris.io/jokes/g_zwbupASxCDjBlEbhcKvg",
+            "value": "On days that Chuck Norris is in attendance, the Minister at Chuck Norris' church will only preach his sermon while wearing an Ironman suit. Flack jackets and helmets are available to the congregation at the front door. Children remain safe in the church's underground bunker."
+        },
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:25.905626",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "nRKc0qCYSveRelTyXvUOBQ",
+            "updated_at": "2020-01-05 13:42:25.905626",
+            "url": "https://api.chucknorris.io/jokes/nRKc0qCYSveRelTyXvUOBQ",
+            "value": "Chuck Norris doesn't pole dance because the pole dances around him."
+        }
+    ]
+}'''
+
+Выведите на печать номера объектов, в текстовом ключе "value" которых имя Chuck Norris встречается более одного раза . Построчно.
+
+====================Решение=========================
+
+import json
+import re
+import requests
+
+response_json = '''{
+    "total": 7,
+    "result": [
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:19.324003",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "rQWvBHHjRAeUKXZ4g3ufzQ",
+            "updated_at": "2020-01-05 13:42:19.324003",
+            "url": "https://api.chucknorris.io/jokes/rQWvBHHjRAeUKXZ4g3ufzQ",
+            "value": "Pauly D from Jersey Shore was at the Dance party where Chuck Norris invented the Electric Slide. His hair is now permanently stuck in a blowout position."
+        },
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:20.568859",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "e8kCACtMRL2MoqdFKdSE2A",
+            "updated_at": "2020-01-05 13:42:20.568859",
+            "url": "https://api.chucknorris.io/jokes/e8kCACtMRL2MoqdFKdSE2A",
+            "value": "Only one woman has ever survived a slow dance with Chuck Norris, and she was a jeep."
+        },
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:23.484083",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "8jXeBbRMSbKwN-Rt097h0A",
+            "updated_at": "2020-01-05 13:42:23.484083",
+            "url": "https://api.chucknorris.io/jokes/8jXeBbRMSbKwN-Rt097h0A",
+            "value": "Chuck Norris did offer to dance with the Devil on the pale moonlight but the Devil said not a chance, not with Chuck Norris!"
+        },
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:24.142371",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "5GNd_hFfSfKasJGSyujRSw",
+            "updated_at": "2020-01-05 13:42:24.142371",
+            "url": "https://api.chucknorris.io/jokes/5GNd_hFfSfKasJGSyujRSw",
+            "value": "Some people think they're cool if they walk across hot coals. Chuck Norris regularly breakdances on them."
+        },
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:24.40636",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "GmFOrvL2STqRz0oVO-0I9w",
+            "updated_at": "2020-01-05 13:42:24.40636",
+            "url": "https://api.chucknorris.io/jokes/GmFOrvL2STqRz0oVO-0I9w",
+            "value": "If you use a comeback at Chuck Norris while talking, he will comeback your face. Chuck Norris: Your gay. You: Im straighter than the pole you danced on last night. Chuck Norris: Go get grounded by your mom with that joke Crowd: OOOOOOOOOOOHHHHHHHHHHHH!!!!!!!!!!!"
+        },
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:25.628594",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "g_zwbupASxCDjBlEbhcKvg",
+            "updated_at": "2020-01-05 13:42:25.628594",
+            "url": "https://api.chucknorris.io/jokes/g_zwbupASxCDjBlEbhcKvg",
+            "value": "On days that Chuck Norris is in attendance, the Minister at Chuck Norris' church will only preach his sermon while wearing an Ironman suit. Flack jackets and helmets are available to the congregation at the front door. Children remain safe in the church's underground bunker."
+        },
+        {
+            "categories": [],
+            "created_at": "2020-01-05 13:42:25.905626",
+            "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+            "id": "nRKc0qCYSveRelTyXvUOBQ",
+            "updated_at": "2020-01-05 13:42:25.905626",
+            "url": "https://api.chucknorris.io/jokes/nRKc0qCYSveRelTyXvUOBQ",
+            "value": "Chuck Norris doesn't pole dance because the pole dances around him."
+        }
+    ]
+}'''
+
+
+response = json.loads(response_json)
+substring = 'Chuck Norris'
+for i in response['result']:
+    for k, v in i.items():
+        if k == 'value':
+            count = v.lower().count(substring.lower())
+            if count >= 2:
+                print(response['result'].index(i) + 1)

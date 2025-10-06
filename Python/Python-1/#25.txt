@@ -1,0 +1,171 @@
+Тело ответа №1
+
+{
+
+    "accuracy": "50",
+
+    "last_name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "London, main street, 09",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №2
+
+{
+
+    "accuracy": "50",
+
+    "last_name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "dubai, second street, 1",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №3
+
+{
+
+    "accuracy": "50",
+
+    "last_name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "Paris, side layout, 2",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №4
+
+{
+
+    "accuracy": "50",
+
+    "last_name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": ", main street, 3",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Тело ответа №5
+
+{
+
+    "accuracy": "50",
+
+    "last_name": "Frontline house, 1",
+
+    "phone_number": "(+91) 983 893 3937",
+
+    "address": "Rome, сolosseum streett, 2",
+
+    "types": "shoe park,shop",
+
+    "website": "http://yandex.ru",
+
+    "language": "French-IN"
+
+}
+
+Даны JSON-объекты — тела ответов сервера. По условию, все пять ответов должны содержать ключ "address".
+
+Данный ключ включает в себя 3 обязательных составляющих: город, улица, номер дома. Данные составляющие разделены между собой разделителем в виде запятой. Название города должно начинаться с символа в верхнем регистре.
+
+Необходимо проверить адреса локаций на заполненность города и вывести на печать номера ответов, в которых ключ "address" заполнено корректно. Построчно.
+
+Значение должно быть в виде числа - 1, 2, 3, 4, 5.
+
+====================Решение=========================
+
+one = {
+    "accuracy": 50,
+    "name": "Frontline house, 1",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "London, main street, 09",
+    "data": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+two = {
+    "accuracy": "50",
+    "last_name": "Frontline house, 1",
+    "phone_number": "(+91) 983 893 3937",
+    "address": "dubai, second street, 1",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+three = {
+    "accuracy": 50,
+    "name": True,
+    "phone_number": "(+91) 983 893 3937",
+    "address": "Paris, side layout, 2",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+four = {
+    "accuracy": 50,
+    "name": True,
+    "phone_number": "(+91) 983 893 3937",
+    "address": ", main street, 3",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+five = {
+    "accuracy": 50,
+    "name": True,
+    "phone_number": "(+91) 983 893 3937",
+    "address": "Rome, сolosseum streett, 2",
+    "types": "shoe park,shop",
+    "website": "http://yandex.ru",
+    "language": "French-IN"
+}
+
+
+responses = {1: one["address"], 2: two["address"], 3: three["address"], 4: four["address"], 5: five["address"]}
+
+counter = 0
+
+for key, value in responses.items():
+    counter = value.count(',')
+    if counter == 2 and value[0].isupper():
+        print(key)
+    else: continue
+

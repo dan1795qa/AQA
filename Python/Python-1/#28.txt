@@ -1,0 +1,37 @@
+После отправки запроса, мы получили ответ от сервера
+
+response_json = '''{
+    "latitude": -38.383494,
+    "longitude": 33.427362,
+    "accuracy": 50,
+    "name": "Frontline house",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://google.com",
+    "language": "French-IN"
+}'''
+
+Выведите на печать типы данных, которые содержатся в теле ответа (значения полей), в алфавитном порядке, без дублей. Построчно.
+
+
+====================Решение=========================
+
+import json
+import re
+
+response_json = '''{
+    "latitude": -38.383494,
+    "longitude": 33.427362,
+    "accuracy": 50,
+    "name": "Frontline house",
+    "address": "29, side layout, cohen 09",
+    "types": "shoe park,shop",
+    "website": "http://google.com",
+    "language": "French-IN"
+}'''
+
+response = json.loads(response_json)
+my_set = {str(type(v)) for k, v in response.items() if v is not None}
+type_names = [re.search(r"'(\w+)'", t).group(1) for t in sorted(my_set)]
+for i in type_names:
+    print(i)
